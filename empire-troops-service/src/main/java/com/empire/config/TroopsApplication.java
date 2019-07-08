@@ -18,7 +18,7 @@ public class TroopsApplication {
 		SpringApplication.run(TroopsApplication.class);
 	}
 
-	@FeignClient(name = "EmperialArmySoldierService")
+	@FeignClient(name = "soldier")
 	public interface SoldierServiceClient {
 
 		@RequestMapping(value = "/getSoldier", method = RequestMethod.GET)
