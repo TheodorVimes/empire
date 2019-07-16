@@ -12,13 +12,17 @@ ribbon:
   eureka:
     enabled: true
 
-#not need if user service name as root /serviceName
-#zuul.routes.soldier.path=/proxySoldier/**
-
-#not need since match with service name
-#zuul.routes.soldier.serviceId=soldier
-
-#not need due to usage of eureka
-#zuul.routes.soldier.url=http://localhost:8081
-
-#zuul.routes.troops.path=/proxyTroops/**
+#not need with discovery
+#zuul:
+#  routes:
+#    soldier:
+#      #not need since match with service name
+#      serviceId: soldier
+#      #not need due to usage of eureka
+#      url: http://localhost:8081
+#      #not need if user service name as root /serviceName
+#      path: /proxySoldier/**
+#    troops:
+#      serviceId: troops
+#      url: http://localhost:8082
+#      path: /proxyTroops/**
