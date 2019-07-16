@@ -1,0 +1,8 @@
+server:
+  port: 9999
+
+spirng:
+  application:
+    name: config-server
+  profiles:
+    active: native
