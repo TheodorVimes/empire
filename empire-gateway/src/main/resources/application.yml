@@ -4,13 +4,15 @@ server:
 spring:
   application:
     name: zuul-server
-  cloud:
-    config:
-      uri: http://localhost:9999
 
 ribbon:
   eureka:
-    enabled: true
+    enabled: false
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
 
 #not need if user service name as root /serviceName
 #zuul.routes.soldier.path=/proxySoldier/**
@@ -22,3 +24,14 @@ ribbon:
 #zuul.routes.soldier.url=http://localhost:8081
 
 #zuul.routes.troops.path=/proxyTroops/**
+
+zuul:
+  routes:
+    soldier:
+      url: http://localhost:8081
+      serviceId: soldier
+#      path: /proxySoldier/**
+    troops:
+      url: http://localhost:8082
+      serviceId: troops
+#      path: /proxyTroops/**
