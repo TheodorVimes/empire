@@ -1,6 +1,6 @@
 package com.empire.service;
 
-import com.empire.config.TroopsApplication.SoldierServiceClient;
+import com.empire.clients.SoldierServiceClient;
 import com.empire.model.Squad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
