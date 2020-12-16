@@ -13,16 +13,21 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-            <version>2.1.1.RELEASE</version>
+            <version>${spring.cloud.version}</version>
         </dependency>
 
         <!--need to be here to connect to eureka-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>2.1.1.RELEASE</version>
+            <version>${spring.cloud.version}</version>
         </dependency>
     </dependencies>
 
