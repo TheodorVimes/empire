@@ -4,13 +4,22 @@ server:
 spring:
   application:
     name: zuul-server
-  cloud:
-    config:
-      uri: http://localhost:9999
+#  cloud:
+#    config:
+#      uri: http://localhost:9999
 
 ribbon:
   eureka:
     enabled: true
+
+eureka:
+  instance:
+    hostname: gateway
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://discovery:8761/eureka}
 
 #not need with discovery
 #zuul:
