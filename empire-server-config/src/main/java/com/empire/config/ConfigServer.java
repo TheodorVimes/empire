@@ -1,4 +1,4 @@
-package com.empire;
+package com.empire.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

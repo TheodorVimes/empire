@@ -1,0 +1,48 @@
+version: '3'
+services:
+  discovery:
+    container_name: discovery
+    build:
+      context: empire-server-discovery
+      dockerfile: Dockerfile
+    command: java -jar /discovery.jar
+    networks:
+      - empire
+    ports:
+      - 8761:8761
+    expose:
+      - 8761
+  gateway:
+    container_name: gateway
+    build:
+      context: empire-gateway
+      dockerfile: Dockerfile
+    command: java -jar /gateway.jar
+    networks:
+      - empire
+    expose:
+      - 8090
+    ports:
+      - 8090:8090
+    depends_on:
+      - discovery
+  soldier:
+    container_name: soldier
+    build:
+      context: empire-army-soldier
+      dockerfile: Dockerfile
+    command: java -jar /soldier.jar
+    networks:
+      - empire
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    depends_on:
+      - gateway
+      - discovery
+
+networks:
+  empire:
+    driver: bridge
+
